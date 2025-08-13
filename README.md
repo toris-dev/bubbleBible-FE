@@ -71,9 +71,9 @@ src/
 ---
 
 ## 📬 팀
-| Backend & Infra | Frontend | PM & Frontend |
-| :-------------: | :------: | :------------: |
-| [심판교](https://github.com/pangyosim) | [맹동훈](https://github.com/while-true-study) | [유주환](https://github.com/toris-dev) |
+| [**심판교<br />(백엔드)**](https://github.com/pangyosim) | [**맹동훈<br />(프론트)**](https://github.com/while-true-study) | [**유주환<br />(기획 & 프론트)**](https://github.com/toris-dev) |
+| :------: | :------: | :------: |
+| [<img src="https://github.com/DevCVTeam/.github/assets/108069902/f6030531-0b1f-4cfa-b7b0-82488445c256" height=150 width=150>](https://github.com/pangyosim) | [<img src="https://github.com/DevCVTeam/.github/assets/108069902/041986a5-6be4-48c0-8f62-969187062cd2" height=150 width=150>](https://github.com/while-true-study) | [<img src="https://github.com/DevCVTeam/.github/assets/108069902/2d5842e0-6a12-43d1-8ef6-e587af05b540" height=150 width=150>](https://github.com/toris-dev) |
 
 ---
 
