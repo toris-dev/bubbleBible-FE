@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { MainLayout } from "@/components/templates/MainLayout"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { VerseCard } from "@/components/molecules/VerseCard"
@@ -56,7 +55,7 @@ export default function HomePage() {
   }
 
   return (
-    <MainLayout currentPage="home">
+      <>
       {/* 파티클 효과 */}
       <ParticleEffect trigger={showParticles} onComplete={() => setShowParticles(false)} particleCount={20} />
 
@@ -181,6 +180,6 @@ export default function HomePage() {
           </TabsContent>
         </Tabs>
       </div>
-    </MainLayout>
+      </>
   )
 }

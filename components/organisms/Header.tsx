@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Bell, Book, Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 import { AnimatedButton } from "../atoms/AnimatedButton";
+import { ThemeToggle } from "@/components/atoms/ThemeToggle";
 import { CounterAnimation } from "../atoms/CounterAnimation";
 
 interface HeaderProps {
@@ -21,9 +23,10 @@ interface HeaderProps {
     icon: string;
   };
   notifications?: number;
+  onMenuToggle?: () => void;
 }
 
-export function Header({ user, levelInfo, notifications }: HeaderProps) {
+export function Header({ user, levelInfo, notifications, onMenuToggle }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -33,36 +36,42 @@ export function Header({ user, levelInfo, notifications }: HeaderProps) {
         <div className="flex items-center justify-between">
           {/* 로고 */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2 group cursor-pointer">
+            <Link href="/" className="flex items-center space-x-2 group cursor-pointer">
               <Book className="h-8 w-8 text-orange-600 group-hover:animate-bounce transition-transform" />
               <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent">
                 성경 포털
               </h1>
-            </div>
+            </Link>
 
             {/* 데스크톱 네비게이션 */}
             <nav className="hidden md:flex space-x-6">
-              <AnimatedButton
-                variant="ghost"
-                className="text-orange-700 hover:text-orange-800 hover:bg-orange-100"
-                ripple
-              >
-                성경읽기
-              </AnimatedButton>
-              <AnimatedButton
-                variant="ghost"
-                className="text-orange-700 hover:text-orange-800 hover:bg-orange-100"
-                ripple
-              >
-                커뮤니티
-              </AnimatedButton>
-              <AnimatedButton
-                variant="ghost"
-                className="text-orange-700 hover:text-orange-800 hover:bg-orange-100"
-                ripple
-              >
-                기도방
-              </AnimatedButton>
+              <Link href="/bible">
+                <AnimatedButton
+                  variant="ghost"
+                  className="text-orange-700 hover:text-orange-800 hover:bg-orange-100"
+                  ripple
+                >
+                  성경읽기
+                </AnimatedButton>
+              </Link>
+              <Link href="/community">
+                <AnimatedButton
+                  variant="ghost"
+                  className="text-orange-700 hover:text-orange-800 hover:bg-orange-100"
+                  ripple
+                >
+                  커뮤니티
+                </AnimatedButton>
+              </Link>
+              <Link href="/prayer">
+                <AnimatedButton
+                  variant="ghost"
+                  className="text-orange-700 hover:text-orange-800 hover:bg-orange-100"
+                  ripple
+                >
+                  기도방
+                </AnimatedButton>
+              </Link>
             </nav>
           </div>
 
@@ -97,6 +106,9 @@ export function Header({ user, levelInfo, notifications }: HeaderProps) {
               )}
             </div>
 
+            {/* 테마 토글 */}
+            <ThemeToggle />
+
             {/* 사용자 프로필 */}
             <div className="flex items-center space-x-3 bg-gradient-to-r from-orange-100 to-yellow-100 rounded-full px-4 py-2 hover:from-orange-200 hover:to-yellow-200 transition-all duration-300 cursor-pointer group">
               <Avatar className="h-8 w-8 group-hover:scale-110 transition-transform">
@@ -128,7 +140,10 @@ export function Header({ user, levelInfo, notifications }: HeaderProps) {
               variant="ghost"
               size="icon"
               className="md:hidden text-orange-600"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+                onMenuToggle?.();
+              }}
               ripple
             >
               {isMenuOpen ? (
@@ -144,27 +159,33 @@ export function Header({ user, levelInfo, notifications }: HeaderProps) {
         {isMenuOpen && (
           <div className="md:hidden mt-4 p-4 bg-white/90 backdrop-blur-sm rounded-lg border border-orange-200 animate-in slide-in-from-top-2">
             <div className="flex flex-col space-y-2">
-              <AnimatedButton
-                variant="ghost"
-                className="justify-start text-orange-700"
-                ripple
-              >
-                성경읽기
-              </AnimatedButton>
-              <AnimatedButton
-                variant="ghost"
-                className="justify-start text-orange-700"
-                ripple
-              >
-                커뮤니티
-              </AnimatedButton>
-              <AnimatedButton
-                variant="ghost"
-                className="justify-start text-orange-700"
-                ripple
-              >
-                기도방
-              </AnimatedButton>
+              <Link href="/bible">
+                <AnimatedButton
+                  variant="ghost"
+                  className="justify-start text-orange-700 w-full"
+                  ripple
+                >
+                  성경읽기
+                </AnimatedButton>
+              </Link>
+              <Link href="/community">
+                <AnimatedButton
+                  variant="ghost"
+                  className="justify-start text-orange-700 w-full"
+                  ripple
+                >
+                  커뮤니티
+                </AnimatedButton>
+              </Link>
+              <Link href="/prayer">
+                <AnimatedButton
+                  variant="ghost"
+                  className="justify-start text-orange-700 w-full"
+                  ripple
+                >
+                  기도방
+                </AnimatedButton>
+              </Link>
               <div className="pt-2 border-t border-orange-200">
                 <Input
                   placeholder="성경 검색..."

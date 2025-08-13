@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { MainLayout } from "@/components/templates/MainLayout"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Textarea } from "@/components/ui/textarea"
@@ -84,7 +83,6 @@ export default function CommunityPage() {
   }
 
   return (
-    <MainLayout currentPage="community">
       <div className="space-y-6">
         {/* 페이지 헤더 */}
         <div className="text-center space-y-4">
@@ -269,6 +267,6 @@ export default function CommunityPage() {
           </AnimatedButton>
         </div>
       </div>
-    </MainLayout>
+    
   )
 }

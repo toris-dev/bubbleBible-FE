@@ -5,14 +5,27 @@ import { useState } from "react"
 import { Header } from "../organisms/Header"
 import { Sidebar } from "../organisms/Sidebar"
 import { MobileNavigation } from "../organisms/MobileNavigation"
+import { usePathname } from "next/navigation"
 
 interface MainLayoutProps {
   children: React.ReactNode
-  currentPage?: string
 }
 
-export function MainLayout({ children, currentPage = "home" }: MainLayoutProps) {
+export function MainLayout({ children }: MainLayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const pathname = usePathname()
+
+  const currentPage = (() => {
+    if (!pathname) return "home"
+    if (pathname === "/") return "home"
+    if (pathname.startsWith("/bible")) return "bible"
+    if (pathname.startsWith("/community")) return "community"
+    if (pathname.startsWith("/prayer")) return "prayer"
+    if (pathname.startsWith("/profile")) return "profile"
+    if (pathname.startsWith("/bookmarks")) return "bible"
+    if (pathname.startsWith("/plan")) return "bible"
+    return "home"
+  })()
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">

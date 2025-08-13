@@ -47,6 +47,11 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Scrollbar theme (light) */
+    --scrollbar-track: 0 0% 96.1%;
+    --scrollbar-thumb: 24 95% 58%; /* orange-500 */
+    --scrollbar-thumb-2: 45 93% 47%; /* amber-500 */
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -81,6 +86,11 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Scrollbar theme (dark) */
+    --scrollbar-track: 0 0% 14.9%;
+    --scrollbar-thumb: 24 95% 62%;
+    --scrollbar-thumb-2: 40 96% 55%;
   }
 }
 
@@ -91,4 +101,40 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Global scrollbar styling */
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: hsl(var(--scrollbar-thumb)) hsl(var(--scrollbar-track));
+}
+
+/* Chromium/WebKit */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: hsl(var(--scrollbar-track));
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--scrollbar-thumb)) 0%,
+    hsl(var(--scrollbar-thumb-2)) 100%
+  );
+  border-radius: 999px;
+  border: 2px solid transparent; /* create gap for track color */
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.95);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }

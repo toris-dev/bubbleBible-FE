@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { MainLayout } from "@/components/templates/MainLayout"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
@@ -64,7 +63,6 @@ export default function BiblePage() {
   }
 
   return (
-    <MainLayout currentPage="bible">
       <div className="space-y-6">
         {/* 페이지 헤더 */}
         <div className="text-center space-y-4">
@@ -174,6 +172,6 @@ export default function BiblePage() {
           </CardContent>
         </Card>
       </div>
-    </MainLayout>
+    
   )
 }
