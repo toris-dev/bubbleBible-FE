@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const config: StorybookConfig = {
   stories: [
@@ -16,6 +17,25 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
+  },
+  webpackFinal: async (config) => {
+    if (config.plugins) {
+      config.plugins.push(
+        new MiniCssExtractPlugin({
+          filename: '[name].[contenthash].css',
+          chunkFilename: '[id].[contenthash].css',
+        })
+      );
+    } else {
+      config.plugins = [
+        new MiniCssExtractPlugin({
+          filename: '[name].[contenthash].css',
+          chunkFilename: '[id].[contenthash].css',
+        }),
+      ];
+    }
+    
+    return config;
   },
 };
 
