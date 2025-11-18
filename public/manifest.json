@@ -3,25 +3,78 @@
   "short_name": "성경포털",
   "description": "레벨업과 커뮤니티가 있는 인터랙티브 성경 웹앱",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#FEF3C7",
   "theme_color": "#F59E0B",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/placeholder.svg?height=192&width=192",
+      "src": "/placeholder-logo.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/placeholder.svg?height=512&width=512",
+      "src": "/placeholder-logo.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/placeholder-logo.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
+  "screenshots": [],
   "categories": ["lifestyle", "education", "books"],
   "lang": "ko",
-  "dir": "ltr"
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "오늘의 말씀",
+      "short_name": "말씀",
+      "description": "오늘의 성경 말씀 보기",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/placeholder-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
 }
